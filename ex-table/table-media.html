@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --border-radius: 0.25em;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:100%;
+      min-height: 80vh;
+      font-family: Arial,Tahoma;
+    }
+
+    tbl {
+      display: table;
+      border: 1px solid gray;
+      border-radius: var(--border-radius);
+      background-color: whitesmoke;
+      min-width: 30em;
+      position: relative;
+    }
+
+    tbl header {
+      display: table-row;
+    }
+
+    row {
+      display: table-row;
+    }
+
+    cell {
+      display: table-cell;
+      padding: 0.5em;
+    }
+
+    row cell:first-child {
+      text-align: right;
+    }
+
+    header cell {
+      border-bottom: 1px solid green;
+      background-color: skyblue;
+      cursor: none;
+    }
+    header cell:first-child {
+      border-top-left-radius: var(--border-radius);
+      text-align: right;
+    }
+    header cell:last-child {
+      border-top-right-radius: var(--border-radius);
+    }
+
+    * cell:last-child:not(.descr) {
+      text-align: center;
+    }
+
+    cell.descr {
+      margin: 0 1em;
+      font-style: italic;
+      color: gray;
+      font-size: smaller;
+      border-collapse: collapse;
+      border-bottom: solid 1px gainsboro;
+      position: absolute;
+      text-align: left;
+      left: 0;
+      width: calc(100% - 6em);
+    }
+
+    @media(max-width:800px) {
+      tbl {
+        display: block;
+        min-width: 2em;
+      }
+      header {
+        display: none !important;
+      }
+      header cell {
+        padding: 0;
+      }
+      row {
+        padding: 0 0.5em;
+        display: flex;
+        justify-content: space-between;
+      }      
+      cell {
+        display: inline-block;
+      }
+      cell.descr {
+        position: relative;
+        text-align: center;
+      }
+      cell.empty {
+        display: none;
+      }
+      row cell:last-child:not(.descr)::after {
+        content: ' lat';
+      }
+    }
+
+    @media(max-width:600px) {
+      tbl {
+        width: calc(100vw - 2em);
+        padding: 0.5em;
+      }
+      row {
+        display: inline-block;
+        padding: 0 0.25em 0 0;
+        position:relative;
+      }
+      cell {
+        padding: 0.25em 0;
+        position: relative;
+      }
+      cell.descr {
+        width: calc(100vw - 6em);
+      }
+      row cell:first-child {
+        cursor: zoom-in;
+      }
+      row cell:first-child:not(.last)::after {
+        content: ', ';
+        position:absolute;
+        left: 100%;
+      }
+      row cell:last-child:not(.descr)::after {
+        content: '';
+      }
+      row cell:last-child:not(.descr) {
+        display:none;
+      }
+      cell:first-child:hover + cell:last-child:not(.descr) {
+        display: block;
+        position: absolute;
+        left: calc(100% - 1.5em);
+        top: -1.5em;
+        padding: 0.25em;
+        background-color: white;
+        border-radius: var(--border-radius);
+      }
+    }
+  </style>
+</head>
+<body>
+  <tbl>
+    <header>
+      <cell> Imię i nazwisko </cell>
+      <cell> Wiek </cell>
+    </header>
+    <row>
+      <cell class="empty">&nbsp;</cell>
+      <cell class="descr">
+      Lista ojców:
+      </cell>
+    </row>
+    <row>
+      <cell> Jan Kowalski </cell>
+      <cell> 48 </cell>
+    </row>
+    <row>
+      <cell> Zbychu Wiśniewski </cell>
+      <cell> 45 </cell>
+    </row>
+    <row>
+      <cell> Marcel Florczyk </cell>
+      <cell> 37 </cell>
+    </row>
+    <row>
+      <cell class="last"> Gustaw Pszczółkowski </cell>
+      <cell> 37 </cell>
+    </row>
+    <row>
+      <cell class="empty">&nbsp;</cell>
+      <cell class="descr">
+      Lista synów:
+      </cell>
+    </row>
+    <row>
+      <cell> Jasio Kowalski </cell>
+      <cell> 17 </cell>
+    </row>
+    <row>
+      <cell> Rysio Florczyk </cell>
+      <cell> 16 </cell>
+    </row>
+    <row>
+      <cell> Gucio Wiśniewski </cell>
+      <cell> 16 </cell>
+    </row>
+    <row>
+      <cell class="last"> Oleg Pszczółkowski </cell>
+      <cell> 15 </cell>
+    </row>
+  </tbl>
+</div>
+</body>
+</html>

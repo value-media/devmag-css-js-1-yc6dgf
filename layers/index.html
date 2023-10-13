@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: grid;
+      place-content: center;
+      min-height: 70vh;
+    }
+
+    #active-theme {
+      font-weight: bold;
+        font-family: cursive;
+    }
+
+    @media(max-width:500px) {
+      @layer desktop;
+    }
+
+    @media(min-width:500px) {
+      @layer mobile;
+    }
+
+    @layer mobile {
+      #active-theme::after {
+        color: darkblue;
+        content: ' Mobile ';
+        font-size: medium;
+      }
+    }
+
+    @layer desktop {
+      #active-theme::after {
+        color: darkgreen;
+        content: ' Desktop ';        
+        font-size: large;
+      }      
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <div>
+      Kolor tego tekstu zależny jest od warstwy :) <br>
+      Zmieniaj rozmiar ekranu ekran. <br><br>
+      Aktywna skórka: <span id="active-theme"> </span>
+    </div>
+  </main>
+</body>
+</html>

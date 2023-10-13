@@ -1,0 +1,37 @@
+.ex1 section {
+    padding: 1em;
+    background-color: whitesmoke;
+}
+
+.ex1 {
+  margin-bottom: 2em;
+}
+
+.ex1 .shape1 {
+    /* shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);  */
+    background-color: yellow;
+}
+
+.ex1 :where(.left,.right)  {
+  background-color: lightgray;
+  height: 6em;
+  width: 25%;
+  margin: 8px;
+}
+
+.ex1 .left {
+  float: left;
+  width: 6em;
+  shape-outside: circle();
+  clip-path: circle();
+}
+
+.ex1 .right {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 2.5% 90%);
+  float: right;
+  shape-outside: polygon(90% 0, 100% 100%, 0 100%);
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 15px;
+  margin: 8px;
+  height: 5em;
+}

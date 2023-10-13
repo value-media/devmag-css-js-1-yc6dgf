@@ -1,0 +1,54 @@
+* {
+  color: red !important;
+}
+    tbl {
+      display: table !important;
+      border: 1px solid gray !important;
+      border-radius: var(--border-radius) !important;
+      background-color: whitesmoke !important;
+      min-width: 30em !important;
+      position: relative !important;
+    }
+    tbl header {
+      display: table-row !important;
+    }
+    row {
+      display: table-row !important;
+    }
+    cell {
+      display: table-cell !important;
+      padding: 0.5em !important;
+    }
+    row cell:first-child {
+      text-align: right !important;
+    }
+
+    header cell {
+      border-bottom: 1px solid green !important;
+      background-color: skyblue !important;
+      cursor: none !important;
+    }
+    header cell:first-child {
+      border-top-left-radius: var(--border-radius) !important;
+      text-align: right !important;
+    }
+    header cell:last-child {
+      border-top-right-radius: var(--border-radius) !important;
+    }
+
+    * cell:last-child:not(.descr) {
+      text-align: center !important;
+    }
+
+    cell.descr {
+      margin: 0 1em !important;
+      font-style: italic !important;
+      color: gray !important;
+      font-size: smaller !important;
+      border-collapse: collapse !important;
+      border-bottom: solid 1px gainsboro !important;
+      position: absolute !important;
+      text-align: left !important;
+      left: 0 !important;
+      width: calc(100% - 6em) !important;
+    }

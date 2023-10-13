@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 
+    https://blog.devgenius.io/15-lesser-known-css-tips-and-tricks-every-web-developer-should-know-1caadb5258fb 
+  -->
+  <style>
+    * {
+      font-family: Arial, Helvetica;
+    }
+
+    #spot-not {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      color: green;
+    }
+
+    #spot-not :not(div:last-child) {
+      color: gray;
+      font-style: italic;
+      font-size: larger;
+    }
+
+    #spot-not div:first-child {
+      color: navy;
+      border-bottom: solid 1px gray;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    section {
+      padding: 1em;
+      margin: 1em;
+      border: 1px solid gray;
+      border-radius: 0.25em;
+    }
+
+    #spot-before {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    #spot-before img {
+      border: 1px solid gainsboro;
+      padding: 0.25em;
+      border-radius: 0.25em;
+      margin-left: 1em;
+    }
+    #spot-before img::before {
+      /* content: "Obraz niedostępny"; */      
+    vertical-align: center;  
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMsAAAB7CAMAAADt74R0AAAAY1BMVEX///8AAACvr6+cnJx0dHSWlpaJiYmnp6f8/PzZ2dn39/egoKDh4eGkpKSsrKzw8PA3NzeAgIBkZGTGxsa1tbUrKyvn5+e8vLw/Pz9eXl7Pz89QUFBISEhtbW0SEhIyMjIfHx8ViMt7AAAET0lEQVR4nO2ba5ejIAyGiYoiahEvtYq3//8rF9Q62na3ndmzrezJ86GlVHvyTiCE4BCCIAiCIAiCIAiCIAiCIAiCIAjyENa49IpbiE+b8zc0A+yI2Kct+jFND6W/+oUqAH/zbVF8zLDvEwPIXUfVw5f9FIbzuy36MecLZDdjKoEyXJougGPNiOMXqO8muweKT40EIHi7ST+FZ3C5j1u8nKcM1V55u0k/hUlIwwf9OhxUhJwATm836bvwJpjXEg+gi+g9kYKR6i8LESUN/7S5fyKu4TUc4ujX+sCBrCkhle4TknYaYDyRAwyPhuEhYAq653/pYJ0r5wzqo4blBuC5adtgzAGO6hh/l6I8xt1FMAnuP7Tnb/CerxnOfokMXlD/GR5rEWEVJEVzNsPPXZbICsZpcNmlhSdLmE69xsyVaYDpTA2UaVilpRq1ilr6njKN6wCzUQvTaVddzVlZqJ2yTvtqaBvzbpEWXztizVOCbQQTYumzRUsBJo9cmIIxr+LdFdZo0bMiWj/MwTiHbJdPWqOFQre2lyVSKNht8m3RwkZoru3guvU6Qb29wxYtIYzXpg5hydxiANvNpi1akrUIs83BFOSba2zRIq++cFavTL3bzbEtWrxlmu8zY7rLjG3RsvjF2Zcp7PSLM4Vk96YO1lo5X2KAm8SFWBvH2AD5btobHDvXF21o39+U9MRlk6ERi7TohGWTkE34oHZ1WWu0RHeFVve27mKLlpOJYLn8Kphx/662b4mWaDJcb/ZpKBhhPNbaxurmDju0LCW9c2fKxtKXmXlvbu+wQsvpGoxZmI1THWZU+X1Z3wYtu9WeN0VQ5A/Pw4+rxQc6N4rbJfL3dxy1BttAP9XGo1fPIg9cG+ctSL4E45eu90Ad9czCPGZRUt+s9sJ5jj8+PtI8CGFrQlYwVfleQB1Yih42cs7BYu859Nhnr69P++PzcjA+Pv+RV+L/RwoRbfT8IgRBEOTfw9YXwtiulxFy87q+M8YOmPSzRC+TwjfVidzrqiVrzPUW+OybangzFZeEP2XG3Mmk6cyl9Lzj7ZJZBg05D4V51kXSa5HPLXU2UJqHxLLeqMjnszIfks7U++lIKT1eAsc6aPk5LQjPPK1h3iyTKNVaTA05nx9Mlmkam62x1iEjRlz1WaN/A8tUSYXWItrE+GajJS07JkujRYswtXGud/mM6WHopnn+oNL0aVjmF33VrlpmCyctw6kvwDFjrLhwWutZA2HTg8d1Xn1ph/jJL78flklSD2M1J5g7v5SND15sKi5KFRSE8QsPs44TtxX8eG6ZtJzN8y/M05PAu+y0hGlutMRjOaR6C83NNvqi45erODlgUGa1Z8qQOo6F5bAeSk5xrM/1chJqLXTUXX7J9PazHi+xOVRWSnV/+tnPUOVm3TCDP3aC6xwItTbhTCvLSZA8n74VhIVBYTobU1qy6b9gEARBEARBEARBEARBEARBvscvWesvn9fTR4EAAAAASUVORK5CYII=');
+    }
+
+    section:empty {
+      display: none;
+    }
+
+    #spot-calc {
+      width: calc(100% - 2em);
+      box-sizing: border-box;
+    }
+
+    #spot-button button {
+      transition: background-color 0.3s ease-in-out;
+      padding: 0.5em;
+      min-width: 12em;
+    }
+    #spot-button button:hover {
+      background-color: white;
+      border-radius: 0.25em;
+      border: 1px solid currentColor;
+    }
+    #spot-button button:hover::after {
+      content: " - nie działa!"
+    }
+    form fieldset {
+      padding: 1em;
+      display: grid;
+      gap: 0.5em;
+      border-radius: 0.5em;
+    }
+    form fieldset:focus-within {
+      border: 1px solid gainsboro;
+      background-color: whitesmoke;
+    }
+    input[type="checkbox"]:checked + label {
+      font-weight: bold;
+    }
+    input[type="radio"] + label {
+      cursor: pointer;
+      min-width: 15em;
+    }
+    input[type="radio"]:checked + label {      
+      font-weight: bold;
+    } 
+    .text-field {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 0.5em;
+      justify-content: start;
+    }
+    .text-field :last-child {
+      min-width: 12em;
+      text-align: right;
+    }
+    .text-field input[required] + label::after {
+      color: red;
+      content: " * ";
+    }   
+    section:target {
+      background-color: whitesmoke;
+      border: 1px solid dimgray;
+    }    
+  </style>
+</head>
+<body>
+  <section>
+  <a href="#spot-not">Not pseudo-class</a>
+  <a href="#spot-before">before+img</a>
+  <a href="#spot-calc">css calc</a>
+  <a href="#spot-button">css trasition</a>
+  <a href="#spot-focus">form focused</a>
+  </section>
+  <section id="spot-not">
+    <div>Nagłówek</div>
+    <div>
+      jeden
+    </div>
+    <div>
+      dwa
+    </div>
+    <div>
+      trzy
+    </div>
+    <div>
+      cztery
+    </div>
+    <div>
+      ostatni element listy
+    </div>
+  </section>
+  <section id="spot-before">
+    <img src="https://--encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLKAcOW067oHjghTyq77HAh-uBSte31R5BYUmDdZbjOg&s" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLKAcOW067oHjghTyq77HAh-uBSte31R5BYUmDdZbjOg&s" alt="">
+  </section>
+  <section id="spot-empty"></section>
+  <section id="spot-calc">
+    Ala ma kota. Kot ma Alę.
+  </section>
+  <section id="spot-button">
+    <button>Kliknij</button>
+  </section>
+  <section id="spot-focus">
+    <form>
+      <fieldset>
+        <legend> Dane formularza </legend>
+        <div class="text-field">
+          <input id="imie" type="text" required >   
+          <label for="imie">Imię:</label>       
+        </div>
+        <div class="text-field">
+          <input id="nazwisko"  type="text" required>
+          <label for="nazwisko">Nazwisko:</label>
+        </div>
+        <div>
+          <input type="checkbox" id="male">
+          <label for="male">Mężczyzna</label>
+        </div>
+        <div>
+          <input type="radio" name="wiek" id="wiek1">
+          <label for="wiek1">dziecko</label>
+          <input type="radio" name="wiek" id="wiek2">
+          <label for="wiek2">dorosły</label>
+          <input type="radio" name="wiek" id="wiek3">
+          <label for="wiek3">emeryt</label>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+</body>
+</html>

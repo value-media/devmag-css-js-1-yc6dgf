@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+    display: grid;
+    place-content: center center;
+    height: 75vh;
+    font-family: sans-serif, arial;
+  }
+  main {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+    background: whitesmoke;
+    border: solid 2px white;
+    outline: solid 2px gray;
+    border-radius: 0.5em;
+  }
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  label ~ select {
+    background: white;
+    margin: 0.5em;
+    padding: 0.5em;
+    min-width: 6em;
+    text-align: center;
+    border-radius: 0.25em;
+  }
+
+  main:has(:focus) {
+    outline: 2px blue solid;
+  }
+
+  select:focus {
+    background: lightskyblue;
+    border: solid 3px white;
+  }
+
+  option:checked {
+    font-size: medium;
+  }
+  </style>
+  <script>
+    window.onload = function() {
+      for(let s of document.querySelectorAll('select')) {
+        s.addEventListener('focus', function() { this.size = 5; });
+        s.addEventListener('blur', function() { this.size = 1; });
+      }
+    };
+  </script>
+</head>
+<body>
+<main>
+  <section>
+    <label for="">Dzień:</label>
+    <select name="dzien" id="dzien">
+      <option hidden selected>wybierz</option>
+      <option value="1">01</option>
+      <option value="2">02</option>
+      <option value="3">03</option>
+      <option value="4">04</option> 
+      <option value="5">05</option> 
+      <option value="6">06</option> 
+      <option value="7">07</option> 
+      <option value="8">08</option> 
+      <option value="9">09</option>  
+      <option value="10">10</option>  
+    </select>
+  </section>
+  <section>
+    <label for="miesiac">Miesiąc:</label>
+    <select name="miesiac" id="miesiac">
+      <option hidden selected>wybierz</option>
+      <option value="1">01</option>
+      <option value="2">02</option>
+      <option value="3">03</option>
+      <option value="4">04</option> 
+      <option value="5">05</option> 
+      <option value="6">06</option> 
+      <option value="7">07</option> 
+      <option value="8">08</option> 
+      <option value="9">09</option>  
+      <option value="10">10</option>  
+      <option value="11">11</option>  
+      <option value="12">12</option>  
+    </select>
+  </section>
+  <section>
+    <label for="rok">Rok:</label>
+    <select name="rok" id="rok">
+      <option hidden selected>wybierz</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>  
+    </select>
+  </section>
+</main>
+</body>
+</html>

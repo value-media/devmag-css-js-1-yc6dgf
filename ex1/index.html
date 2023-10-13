@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- 
+    8 Cool Useful JavaScript Coding Techniques That You Should Use 
+    https://javascript.plainenglish.io/8-cool-useful-javascript-coding-techniques-that-you-should-use-750835caaf01
+    
+    18 Powerful JavaScript Skills for Senior Engineers
+    https://javascript.plainenglish.io/18-powerful-javascript-skills-for-senior-engineers-17c51990997e
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 usefull tricks - Javascript</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+</head>
+<body>
+    <header class="title">
+        <a  rel="noopener noreferrer" href="https://javascript.plainenglish.io/8-cool-useful-javascript-coding-techniques-that-you-should-use-750835caaf01" target="_blank">
+            8 Cool Useful JavaScript Coding Techniques That You Should Use
+        </a>
+        <br>
+        <a  rel="noopener noreferrer" href="https://javascript.plainenglish.io/18-powerful-javascript-skills-for-senior-engineers-17c51990997e" target="_blank">
+            18 Powerful JavaScript Skills for Senior Engineers
+        </a>
+    </header>
+    <section id="ex-1">
+        <div class="title">
+            1.# Checks if an element is within the visible area of the screen
+        </div>
+        <div id="ex-1-pointer" class="noprint"></div>
+    </section>
+    <section id="ex-2">
+        <div>
+            <input type="file" title="uload-img" name="uload-img" id="uload-img">
+            <img src="" alt="">
+        </div>
+    </section>
+    <section id="ex-3">
+        <div id="ex-3-test">Monitor attribute change test</div>
+        <button onclick="handleClick()">OK</button>
+            <script>
+        const el = document.getElementById("ex-3-test");
+        let n = 1;
+        const observe = new MutationObserver((mutations) => {
+            console.log("attribute is changed", mutations);
+        })
+        observe.observe(el, {
+            attributes: true
+        });
+        function handleClick() {
+            el.setAttribute("style", "color: red");
+            el.setAttribute("data-name", n++);
+        }
+        setTimeout(() => {
+            observe.disconnect(); // stop watch            
+            el.setAttribute("style", "color: dimgray");
+        }, 25000);
+    </script>
+    </section>
+    <section id="ex-4">
+        <a href="tel:12345678910">phone</a>
+        <a href="sms:12345678910,12345678911?body=hello">android message</a> 
+        <a href="sms:/open?addresses=12345678910,12345678911&body=hello">ios message</a>
+        <a href="wx://">ios message</a>
+    </section>
+        
+
+    <div class="bottom"></div>
+    <footer class="noprint">
+        <button id="scrollToTop"> ↑ </button>
+        <button id="scrollToBottom"> ↓ </button>
+        <button id="printPage"> 🖨️ </button>
+        <button id="recordPage"> 🎦 </button>
+        <button id="enterFullScreen"> 📺 </button>
+        <button id="exitFullScreen"> 🖵 </button>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">   
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Roboto, Helvetica, Tahoma, Arial;
+    }
+
+    header {
+      width: calc(100% - 2em);
+      padding: 1em;
+      margin: 1em;
+      border: 1px solid gray;
+      border-radius: 0.25em;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap:wrap;
+      gap: 1em;
+    }
+
+    header a {
+      text-decoration: none;
+      padding: 0.25em 1em;
+      border: 1px gray solid;
+      border-radius: 0.25em;
+      position: relative;
+    }
+
+    header a:hover {
+      background-color: whitesmoke;
+    }
+
+    header a:active {
+      border: 2px solid navy;
+      color: navy;
+      margin-top: -2px;
+    }
+
+    header a:focus {
+      border: 2px solid black;
+    }
+
+    section {
+      width: calc(100% - 2em);
+      padding: 1em;
+      margin: 1em;
+      border: 1px solid gray;
+      border-radius: 0.25em;
+      min-height: 50vh;
+    }
+
+    section:not(:target) {
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#s1">Sekcja #1</a>
+    <a href="#s2">Sekcja #2</a>
+    <a href="#s3">Sekcja #3</a>
+    <a href="#s4">Sekcja #4</a>
+    <a href="#s5">Sekcja #5</a>
+    <a href="#s6">Sekcja #6</a>
+    <a href="#s7 ">Sekcja #7 </a>
+  </header>
+<main>
+  <section id="s1">
+    Sekcja #1
+  </section>
+  <section id="s2">
+    Sekcja #2
+  </section>
+  <section id="s3">
+    Sekcja #3
+  </section>
+  <section id="s4">
+    Sekcja #4
+  </section>
+  <section id="s5">
+    Sekcja #5
+  </section>
+  <section id="s6">
+    Sekcja #6
+  </section>
+  <section id="s7">
+    Sekcja #7 
+  </section>
+</main>
+</body>
+</html>

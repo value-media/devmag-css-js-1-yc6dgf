@@ -1,0 +1,55 @@
+.ex4 {
+  font-size: medium;
+  font-family: sans-serif;
+  padding: 1em;
+  margin: 1em;
+  background-color: whitesmoke;
+}
+
+.ex4 header {
+  margin: 1em 1.5em;
+  display: inline-block;  
+  border-bottom: 2px solid gray;
+}
+
+.ex4 label {
+  display: block;
+  margin: 1em;
+  position: relative;
+  cursor: pointer;
+}
+
+.ex4 input[type="checkbox"] {
+    -webkit-appearance: none;
+}
+
+.ex4 i {
+  position: absolute;
+  top: 0px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid gray;
+  transition: all 0.2s;
+}
+
+.ex4 input[type="checkbox"]:checked ~ i {
+    top: 3px;
+    height: 7px;
+    width: 20px;
+    border: 2px solid darkgreen;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-50deg);
+    transition: all 0.25s;
+}
+
+.ex4 span {
+    position: relative;
+    left: 35px;
+    transition: 0.5s;
+}
+
+.ex4 input[type="checkbox"]:checked ~ span {
+  color: darkgreen;
+}

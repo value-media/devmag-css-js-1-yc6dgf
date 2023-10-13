@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            grid-auto-rows: 200px;
+            grid-template-areas:
+                ". h h ."
+                ". a a ."
+                ". b b .";
+        }
+        header {
+            font-size: large;
+            text-align: center;
+            color: dimgray;
+            padding: 0 0 1em;
+        }
+        header span {
+            font-style: italic;
+        }
+        form {
+            grid-area: a;
+            align-self: center;
+            justify-self: center;
+            padding: 1.5em 3em;
+            display: grid;
+            border: 1px solid gainsboro;
+            border-radius: 1em;
+            -webkit-box-shadow: 9px 8px 24px 4px gainsboro;
+            -moz-box-shadow: 9px 8px 24px 4px gainsboro;
+            box-shadow: 9px 8px 24px 4px gainsboro;            
+        }
+
+        form .field input {
+            width: 25em;
+            padding: 1em 1.5em;
+            border-radius: 1.5em;
+            border: 1px solid gainsboro;
+            background-color: whitesmoke;
+        }
+
+        form input:focus {
+            background-color: white;
+            outline: aqua solid 2px;
+        }
+
+        .field {
+            position: relative;
+            padding: 1.5em 0;
+        }
+
+        .field input ~ label {
+            display: block;
+            transition: all 0.1s ease;
+            pointer-events: none;
+            position: absolute;
+            top: 2.25em;
+            left: 1.2em;
+            opacity: 0.5;
+            font-style: italic;
+        }
+
+        .field input:valid ~ label {
+            top: 0px;
+            left: 1.15em;
+            opacity: 1;
+            font-style: normal;
+        }
+
+        form button[type=submit] {
+            border-radius: 1em;
+            background-color: whitesmoke;
+            border: none;
+            outline: 1px solid gainsboro;
+            color: dimgray;
+            padding: 0.5em;
+            width: 100%;
+            font-size: large;
+            margin: 1em 0;
+        }
+
+        form button[type=submit]:hover, form button[type=submit]:focus {
+            outline: aqua 2px solid;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        [data-tooltip] {
+            position: relative;
+        }
+
+        [data-tooltip]:hover::after {
+            opacity: 0.5;
+            transition: all 0.5s;
+        }
+
+        [data-tooltip]::after {
+            content: attr(data-tooltip);
+            background-color: antiquewhite;
+            position: absolute;
+            white-space: nowrap;
+            left: 1em;
+            top: -2em;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            opacity: 0;
+            font-size: smaller;
+        }
+
+        .src_articles {
+            padding: 1em;
+            white-space: nowrap;
+            font-size: small;
+            position: fixed;
+            right: 1em;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #message {
+            display: none;
+            border: 1px solid gainsboro;
+            border-radius: 0.5em;
+            padding: 1em;
+            margin: 1em 0;
+            white-space: pre;
+        }
+
+        .info {
+            display: block !important;
+            color: green;
+            white-space: pre-line;
+        }
+
+        .error {
+            display: block !important;
+            color: red;
+        }
+    </style>
+    <style>
+        fieldset {
+            border: 1px gainsboro solid;
+            border-radius: 0.5em;
+            color: gray;
+            padding: 1em;
+        }
+
+        fieldset input {
+            margin: 1em;
+        }
+
+        fieldset input[type='number'] {
+            width: 5em;
+            border: 1px gray solid;
+            border-radius: 0.25em;
+            padding: 0.5em;
+        }
+
+        output {
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>    
+    <form id="loginForm">
+        <header>Logowanie <span>- walidacja hasła</span> </header>
+        <div class="field">
+            <input id="nick" type="text" name="nick" title="Login" autofocus required autocomplete="false">
+            <label for="nick">Login</label>
+        </div>
+        <div class="field">
+            <input type="password" name="pwd" title="Hasło" required>
+            <label for="password">Hasło</label>
+        </div>
+        <div>
+            <button type="submit" data-tooltip="kliknij, żeby sprawdzić poprawność hasła">Zaloguj</button>
+        </div>
+        <div id="message"></div>
+        <br>
+        <fieldset>
+            <legend> Używanie output </legend>
+            <label for="a">A</label>
+            <input type="range" id="a" value="75" oninput="this.form.result.value=+this.form.a.value+ +this.form.b.value" >
+            <label for="b">B</label> 
+            <input type="number" id="b" value="25" oninput="this.form.result.value=+this.form.a.value+ +this.form.b.value" >
+            <br><br>A + B = 
+            <output name="result" for="a b">100</output>                
+        </fieldset>
+    </form>
+    <div class="src_articles">
+        <a href="https://javascript.plainenglish.io/11-useful-html-tricks-for-better-web-development-94ebe0b934a2" 
+            rel="noopener noreferrer" data-tooltip="źródłowy artykuł">
+            11 Useful HTML Tricks for Better Web Development
+        </a>
+        <a href="/" download="js_css_example3" download>  <mark>pobierz</mark> ten przykład</a>
+    </div>
+    <script>
+        window.onload = function() {
+            document.querySelector('#loginForm')
+                .addEventListener('submit', formSubmit);
+                
+            addLoginSuggestions();
+        }
+
+        function formSubmit(e) {
+            e.preventDefault();
+            const msg = document.querySelector('#message');
+            const info = { password: this.pwd.value};
+            
+            try {
+                const validationRegExp = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,}/;
+                if (!validationRegExp.test(info.password)) {
+                    throw new Error(`
+                        nie spełnia następujących kryteriów:
+                        - zawiera małą literę
+                        - zawiera dużą literę
+                        - zawiera cyfrę
+                        - zawiera znak specjalny
+                        - zawiera przynajmniej 8 znaków
+                        `);
+                }
+                msg.className = 'info';
+            }
+            catch(err) {
+                info.errorMessage = err.message.replace(/\n/g, '<br/>').replace(/ {4}/g, ' ');
+                info.validExample = '123taJne!'
+                msg.className = 'error';
+            }
+                
+            msg.innerHTML = JSON.stringify(info, null, 2);
+        }
+
+        function addLoginSuggestions() {
+            const suggestions = [ 'krysia', 'józio', 'grażyna', 'janusz', 'janek', 'kasia', 'tomek', 'przemek', 'karol'];
+            const loginField = document.querySelector('input[name="nick"]');
+            loginField.setAttribute('list', 'suggestions');
+
+            const list = document.createElement('datalist');
+            list.setAttribute('id', 'suggestions');
+            suggestions.forEach((s,i) => { 
+                const sg = document.createElement('option');
+                sg.value = s;     
+                sg.selected = !i; 
+                sg.disabled = !(i % 3);
+                list.append(sg);         
+            });
+
+            document.querySelector('body').append(list);
+        }
+    </script>
+</body>
+</html>

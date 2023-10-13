@@ -1,0 +1,37 @@
+* {
+  color: green !important;
+}
+
+
+  tbl {
+    display: block !important;
+    min-width: 2em !important;
+  }
+  header {
+    display: none !important;
+  }
+  header cell {
+    padding: 0 !important;
+  }
+  row {
+    padding: 0 0.5em !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }      
+  cell {
+    display: inline-block !important;
+  }
+  cell.descr {
+    position: relative !important;
+    text-align: center !important;
+  }
+  cell.empty {
+    display: none !important;
+  }
+  row cell:last-child:not(.descr)::after {
+    content: ' lat' !important;
+  }
+
+  row cell:first-child:not(.last)::after {
+    content: '' !important;
+  }

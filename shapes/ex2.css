@@ -1,0 +1,6 @@
+.ex2 .drop-shadow {
+  filter: drop-shadow(4px 8px 12px white);
+}
+.ex2 {
+  background-color: gray;
+}

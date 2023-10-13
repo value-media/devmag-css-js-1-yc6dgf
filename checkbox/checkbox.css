@@ -1,0 +1,53 @@
+body {
+  display: grid;
+  place-content: center center;
+  height: 80vh;
+  font-family: sans-serif, Arial, Helvetica;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  padding: 1em;
+  background-color: lightskyblue;
+  border-radius: 0.25em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 1em;
+  column-gap: 1em;
+  max-width: 73em;
+}
+
+input[type=checkbox] {
+  opacity: 0;
+  display:none;
+}
+
+input[type=checkbox] + label {
+  position: relative;
+  font-weight: bold;
+  border: 3px white solid;
+  background-color: gainsboro;
+  padding: 0.5em;
+  min-width: 10em;
+  min-height: 3em;
+  display: grid;
+  place-content: center;
+  border-radius: 0.25em;
+}
+
+input[type=checkbox]:checked + label {
+  background-color: white;
+  border: 1px blue solid;
+}
+
+input[type=checkbox]:checked + label::after {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  content: "😎";
+}

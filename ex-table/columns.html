@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://javascript.plainenglish.io/9-unpopular-css3-properties-you-didnt-know-74eccf0d6c84 -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  html { font-family: sans-serif; }
+  main {
+    border: solid 1px gainsboro;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin: 1em;
+    columns: 2;
+  }
+  main div {
+    counter-increment: pozycja;
+  }
+  main div::before {
+    content: counters(pozycja, '.') ': ';
+    color: gray;
+  }
+
+  main div:nth-child(even){
+    font-weight: bold;
+  }
+  main div:nth-child(-n + 2 of .secret){
+    background-color: yellow;
+    content-visibility: hidden;
+  }
+  .video-box {
+    width: 20em;
+    background-color: navy;
+    aspect-ratio: 16/9;
+    margin: 1em auto;
+  }
+
+  .accent {
+    padding-top: 2em;
+    position: relative;
+    margin: 1em;
+  }
+  .accent::before {
+    top: 0;
+    position: absolute;
+    content: 'Zmiana accent-color:';
+  }
+  .accent input[type=checkbox] {
+    accent-color: crimson;
+  }
+  .accent input[type=radio] {
+    accent-color: dodgerblue;
+  }
+  .accent input[type=range] {
+    accent-color: lawngreen;
+  }
+  .accent progress {
+    accent-color: coral;
+  }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="secret">
+      to jest element komórki tabeli
+    </div>
+    <div>
+      to jest element komórki tabeli
+    </div>
+    <div>
+      to jest element komórki tabeli
+    </div>
+    <div class="secret">
+      to jest element komórki tabeli
+    </div>
+    <div>
+      to jest element komórki tabeli
+    </div>
+    <div class="secret">
+      to jest element komórki tabeli
+    </div>
+    <div class="secret">
+      to jest element komórki tabeli
+    </div>
+    <div>
+      to jest element komórki tabeli
+    </div>
+    <div class="secret">
+      to jest element komórki tabeli
+    </div>
+  </main>
+  <div class="video-box"></div>
+  <section class="accent">
+    <input type="checkbox" class="checkbox" checked />
+    <input type="radio" class="radio" checked />
+    <input type="range" class="range" />
+    <progress value="70" max="100" class="progress">70%</progress>  
+  </section>  
+</body>
+</html>

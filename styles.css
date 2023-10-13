@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+header {
+  padding: 1em;
+  margin: 1em;
+  border-bottom: 1px solid gainsboro;
+}
+
+section {
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid gainsboro;
+  border-radius: 0.5em;
+}

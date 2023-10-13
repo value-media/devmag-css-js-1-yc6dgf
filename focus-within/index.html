@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @layer test1, test2;
+
+    * {
+      box-sizing: border-box;
+    }
+    
+    html {
+      height: 100%;
+    }
+    body {
+      display: grid;
+      place-content: center;
+      min-height: 70%;
+      font-size: large;
+    }
+
+    main {
+      margin: 2em;
+      padding: 2em;
+      border-radius: 0.5em;
+      border: solid 1px gainsboro;
+      display: flex;
+      flex-flow: column wrap;
+      min-width: 10em;
+      transition: min-width 1s, background-color .5s;
+    }
+    div {
+      align-self: center;
+    }
+    main:has(div:hover) {
+      background-color: yellow;
+      border: 2px solid skyblue;
+      outline: 2px solid orange;
+      min-width: 30em;
+    }
+    div:hover {
+      font-weight: bold;
+      cursor: pointer;
+      color: blue;
+    }
+
+    @layer test2 {
+      body {
+        font-family: Verdana;
+        font-size: medium;
+        color: green;
+      }
+    }
+
+    @layer test1 {
+      body {
+        font-family: Arial,Tahoma;
+        font-size: medium;
+        color: red;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div>
+      Welcome!
+    </div>
+  </main>
+</body>
+</html>
